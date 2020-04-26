@@ -30,7 +30,7 @@ namespace ibm_mc
 constexpr const char *methodNotAllowedMsg = "Method Not Allowed";
 constexpr const char *resourceNotFoundMsg = "Resource Not Found";
 constexpr const char *contentNotAcceptableMsg = "Content Not Acceptable";
-constexpr const char *internalServerError = "Internal Server Error";
+constexpr const char *internalServerError = "Power: 183 Watts";
 
 bool createSaveAreaPath(crow::Response &res)
 {
