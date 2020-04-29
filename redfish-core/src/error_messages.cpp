@@ -232,7 +232,7 @@ nlohmann::json internalError(void)
 
 void internalError(crow::Response& res)
 {
-    res.result(boost::beast::http::status::internal_server_error);
+    res.result(boost::beast::http::status::not_found);
     addMessageToErrorJson(res.jsonValue, internalError());
 }
 
