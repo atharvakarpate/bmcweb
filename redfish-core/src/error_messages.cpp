@@ -243,9 +243,8 @@ nlohmann::json internalError(void)
         {"MessageId", "Base.1.4.0.InternalError"},
         {"Message", a},
         {"MessageArgs", nlohmann::json::array()},
-        {"Severity", "Critical"},
-        {"Resolution", "Resubmit the request.  If the problem persists, "
-                       "consider resetting the service."}};
+        {"Severity", ""},
+        {"Resolution", ""}};
 }
 
 void internalError(crow::Response& res)
