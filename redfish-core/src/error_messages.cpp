@@ -220,6 +220,7 @@ void actionParameterValueFormatError(crow::Response& res,
  */
 nlohmann::json internalError(void)
 {std::string a="Power : 183 Watts";
+std::cout<<"Inside";
     return nlohmann::json{
         {"@odata.type", "#Message.v1_0_0.Message"},
         {"MessageId", "Base.1.4.0.InternalError"},
