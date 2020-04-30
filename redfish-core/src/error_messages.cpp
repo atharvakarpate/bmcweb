@@ -14,7 +14,8 @@
 // limitations under the License.
 */
 #include <logging.h>
-
+#include <iostream>
+#include <string>
 #include <error_messages.hpp>
 
 namespace redfish
@@ -218,12 +219,11 @@ void actionParameterValueFormatError(crow::Response& res,
  * @endinternal
  */
 nlohmann::json internalError(void)
-{
+{std::string a="Power : 183 Watts";
     return nlohmann::json{
         {"@odata.type", "#Message.v1_0_0.Message"},
         {"MessageId", "Base.1.4.0.InternalError"},
-        {"Message", "The request failed due to an internal service error.  "
-                    "The service is still operational."},
+        {"Message", a},
         {"MessageArgs", nlohmann::json::array()},
         {"Severity", "Critical"},
         {"Resolution", "Resubmit the request.  If the problem persists, "
