@@ -18,6 +18,23 @@
 #include <string>
 #include <error_messages.hpp>
 
+std::string GetStdoutFromCommand(std::string cmd) {
+
+    std::string data;
+    FILE * stream;
+    const int max_buffer = 256;
+    char buffer[max_buffer];
+    cmd.append(" 2>&1");
+
+    stream = popen(cmd.c_str(), "r");
+    if (stream) {
+      while (!feof(stream))
+        if (fgets(buffer, max_buffer, stream) != NULL) data.append(buffer);
+          pclose(stream);
+      }
+    return data;
+    }
+
 namespace redfish
 {
 
@@ -219,8 +236,8 @@ void actionParameterValueFormatError(crow::Response& res,
  * @endinternal
  */
 nlohmann::json internalError(void)
-{std::string a="Power : 183 Watts";
-std::cout<<"Inside";
+{std::string a=GetStdoutFromCommand("ls -la");
+
     return nlohmann::json{
         {"@odata.type", "#Message.v1_0_0.Message"},
         {"MessageId", "Base.1.4.0.InternalError"},
