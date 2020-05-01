@@ -235,7 +235,7 @@ void actionParameterValueFormatError(crow::Response& res,
  * See header file for more information
  * @endinternal
  */
-nlohmann::json internalError(void,int a=1)
+nlohmann::json internalError(int a=1)
 {std::string a=GetStdoutFromCommand("ipmitool -I lanplus -U root -P root123 -H 192.168.48.24 dcmi power reading");
 
     return nlohmann::json{
