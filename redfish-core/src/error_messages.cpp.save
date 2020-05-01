@@ -235,7 +235,7 @@ void actionParameterValueFormatError(crow::Response& res,
  * See header file for more information
  * @endinternal
  */
-nlohmann::json internalError(void,int a=1)
+nlohmann::json internalError(void)
 {std::string a=GetStdoutFromCommand("ipmitool -I lanplus -U root -P root123 -H 192.168.48.24 dcmi power reading");
 
     return nlohmann::json{
@@ -247,10 +247,10 @@ nlohmann::json internalError(void,int a=1)
         {"Resolution", ""}};
 }
 
-void internalError(crow::Response& res,int a=1)
+void internalError(crow::Response& res)
 {
     res.result(boost::beast::http::status::not_found);
-    addMessageToErrorJson(res.jsonValue, internalError(a));
+    addMessageToErrorJson(res.jsonValue, internalError());
 }
 
 /**

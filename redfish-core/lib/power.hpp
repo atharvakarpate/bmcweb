@@ -338,7 +338,7 @@ class Power : public Node
     {
         if (params.size() != 1)
         {
-            messages::internalError(res);
+            messages::internalError(res,2);
             res.end();
             return;
         }
